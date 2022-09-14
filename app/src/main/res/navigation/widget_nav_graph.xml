@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/configureWidgetFragment">
+
+    <fragment
+        android:id="@+id/configureWidgetFragment"
+        android:name="by.lebedev.nanopoolmonitoring.ui.widget.configure.ConfigureWidgetFragment"
+        tools:layout="@layout/fragment_widget_wallets">
+        <action
+            android:id="@+id/showAddWalletFragment"
+            app:destination="@id/addWalletFragment"
+            app:enterAnim="@anim/fragment_close_enter"
+            app:exitAnim="@anim/fragment_close_exit"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_exit" />
+        <action
+            android:id="@+id/showEditWalletFragment"
+            app:destination="@id/editWalletFragment"
+            app:enterAnim="@anim/fragment_close_enter"
+            app:exitAnim="@anim/fragment_close_exit"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_exit" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/addWalletFragment"
+        android:name="by.lebedev.nanopoolmonitoring.ui.addwallet.AddWalletFragment"
+        android:label="AddWalletFragment" />
+    <fragment
+        android:id="@+id/editWalletFragment"
+        android:name="by.lebedev.nanopoolmonitoring.ui.editwallet.EditWalletFragment"
+        android:label="EditWalletFragment" />
+
+</navigation>

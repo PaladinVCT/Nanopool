@@ -1,0 +1,180 @@
+<resources>
+    <string name="app_name">Nanopoolmonitoring</string>
+    <string name="add_wallet">Add wallet</string>
+    <string name="warning">Warning</string>
+    <string name="warning_log_out">Are you sure you want to logout?</string>
+    <string name="update_wallet">Update wallet</string>
+    <string name="common_ok">OK</string>
+    <string name="common_restore">Restore</string>
+    <string name="common_yes">Yes</string>
+    <string name="common_minus">-</string>
+    <string name="common_no">No</string>
+    <string name="common_all">All</string>
+    <string name="common_alive">Alive</string>
+    <string name="common_dead">Offline</string>
+    <string name="common_refresh">Refresh</string>
+    <string name="common_period">Period</string>
+    <string name="common_coins">Coins</string>
+    <string name="common_btc">BTC</string>
+    <string name="common_minute">Minute</string>
+    <string name="common_hour">Hour</string>
+    <string name="common_day">Day</string>
+    <string name="common_week">Week</string>
+    <string name="common_month">Month</string>
+    <string name="worker_name">Name:</string>
+    <string name="worker_hashrate">Hashrate:</string>
+    <string name="common_loading">loading</string>
+    <string name="common_no_hashrate">No hashrate data</string>
+    <string name="common_hashrate">Hashrate</string>
+    <string name="add_wallet_for_monitoring">Add wallet for monitoring</string>
+    <string name="configure_widget_title">Choose a wallet to monitor</string>
+    <string name="edit_wallet_for_monitoring">Edit wallet for monitoring</string>
+    <string name="title_activity_main_screen">MainScreenActivity</string>
+    <string name="title_workers">Workers</string>
+    <string name="title_options">Options</string>
+    <string name="title_earnings">Earnings</string>
+    <string name="menu_options">Options</string>
+    <string name="menu_logout">Log out</string>
+    <string name="search_hint">look for coins</string>
+    <string name="menu_search">search</string>
+    <string name="notifications">Notifications</string>
+    <string name="currency">Currency</string>
+    <string name="get_premium">Get Premium</string>
+    <string name="rate_app">Rate App</string>
+    <string name="you_have_premium">Premium Subscriber</string>
+    <string name="language">Language</string>
+    <string name="auto_login">Auto login</string>
+    <string name="autoupdate">Auto update</string>
+    <string name="title_earnings_and_analytics">Earnings &amp; Analytics</string>
+    <string name="coin_ath_price">ATH price:</string>
+    <string name="coin_ath_change">ATH change:</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_coins">Top 100 coins</string>
+    <string name="coin_name">Coin name</string>
+    <string name="price_in_usd">Price in USD</string>
+    <string name="change_in_24h">Change in 24H</string>
+    <string name="wallet_name">Name</string>
+    <string name="wallet_address">Address</string>
+    <string name="error_wallet_address_empty">Please fill wallet address</string>
+    <string name="your_wallet_name">Your wallet name</string>
+    <string name="your_wallet_address">Your wallet address</string>
+    <string name="optional">Optional</string>
+    <string name="required">Required</string>
+    <string name="settings">Settings</string>
+    <string name="menu_edit_wallet">Edit wallet</string>
+    <string name="menu_delete_wallet">Delete wallet</string>
+    <string name="error_wallet_not_exist">Please check that the wallet address and the coin are entered correctly.\n\nIf the wallet was added recently, then wait for a couple of shares to be found and try again later</string>
+    <string name="current_calculated_hashrate">Current Calculated Hashrate</string>
+    <string name="average_hashrate_for_last_6_hours_worker">Average Hashrate for last 6 hours</string>
+    <string name="last_reported_hashrate_worker">Last Reported Hashrate</string>
+    <string name="last_reported_hashrate">Last Reported Hashrate</string>
+    <string name="balance_dashboard">Balance</string>
+    <string name="approximated_earnings">Approximated earnings</string>
+    <string name="sentiments_title">Santiments votes up/down percentage</string>
+    <string name="ath_title">%1$s ATH</string>
+
+    <string name="pool_info">Pool information</string>
+    <string name="calculated_earnings">Calculated earnings</string>
+    <string name="reported_hashrate_chart">Reported Hashrate Chart:</string>
+    <string name="calculated_hashrate_chart">Calculated Hashrate Chart:</string>
+    <string name="shares_chart">Shares Chart:</string>
+    <string name="workers_alive_dead">Alive: \nOffline:</string>
+
+    <string name="error_connection">Connection error. Check your internet connection</string>
+    <string name="error_network">Network</string>
+    <string name="error_unclassified">Unclassified</string>
+    <string name="error_timeout">Timeout error. try Again</string>
+    <string name="error_io">"Disk transfer error "</string>
+    <string name="error_mapping">Error parsing JSON</string>
+    <string name="error_unauthorized">Signed out. Log in</string>
+    <string name="hashrate_res">%1$.1f %2$s</string>
+    <string name="balance_res">%1$.4f %2$s</string>
+    <string name="sentiments_up_res">up %1$.2f\%%</string>
+    <string name="information">Information</string>
+    <string name="information_notifications">Enable notifications when workers go offline</string>
+    <string name="information_autoupdate">Enables auto-refresh data on the dashboard screen</string>
+    <string name="information_autologin">You can select an account and enable automatic login. This is convenient if you have only one Nanopool account. In this case, the account selection start screen will be skipped when starting the application</string>
+    <string name="information_premium">You can get a premium subscription for a month with full access and no ads\n\nIf you purchased a subscription on another device or changed your device, you can restore your subscription by clicking <b><i>Restore</i></b></string>
+    <string name="title_autologin">Accounts</string>
+    <string name="sentiments_down_res">down %1$.2f\%%</string>
+    <string name="circular_progress_res">%1$.1f\%%</string>
+    <string name="payout_limit_res">%1$.1f\%% of your %2$.1f %3$s payout limit reached</string>
+    <string name="payout_limit_reached">You reached your payout limit</string>
+    <string name="payout_limit_reach_in_seconds">You will reach your payout limit in few seconds(approximately)</string>
+    <string name="payout_limit_reach_in_custom">You will reach your payout limit in %1$s (approximately)</string>
+    <string name="payout_limit_reach_in_infinity">You will reach your payout limit in infinity</string>
+    <string name="unconfirmed_balance">Unconfirmed Balance</string>
+    <string name="payout_limit">Payout Limit</string>
+    <string name="rating">Rating:</string>
+    <string name="last_share_found">Last share found:</string>
+    <string name="total_workers">Total workers: %1$d</string>
+    <string name="worker_details">%1$s details</string>
+    <string name="average_hashrate_for_last_24_hours">Average Hashrate for the last 24 hours:</string>
+    <string name="number_of_miners">Number of miners:</string>
+    <string name="pool_hashrate">Pool hashrate:</string>
+    <string name="pool_share_coef">Pool share coefficient:</string>
+    <string name="notification_workers_offline_title">Workers offline!</string>
+
+    <string-array name="fiatCurrency">
+        <item>USD</item>
+        <item>RUR</item>
+        <item>EUR</item>
+        <item>GBP</item>
+        <item>CNY</item>
+    </string-array>
+
+    <plurals name="common_minute_unit_plurals">
+        <item quantity="zero" translation_description="0, 100, 200 ...">%1$d minutes</item>
+        <item quantity="one" translation_description="1 -> 21, 101 ...">%1$d minute</item>
+        <item quantity="few" translation_description="2-4 -> 3, 22, 103 ...">%1$d minutes</item>
+        <item quantity="many" translation_description="5-9 -> 7, 25, 109...">%1$d minutes</item>
+        <item quantity="other" translation_description="everything else">%1$d minutes</item>
+    </plurals>
+    <plurals name="common_hour_unit_plurals">
+        <item quantity="zero" translation_description="0, 100, 200 ...">%1$d hours</item>
+        <item quantity="one" translation_description="1 -> 21, 101 ...">%1$d hour</item>
+        <item quantity="few" translation_description="2-4 -> 3, 22, 103 ...">%1$d hours</item>
+        <item quantity="many" translation_description="5-9 -> 7, 25, 109...">%1$d hours</item>
+        <item quantity="other" translation_description="everything else">%1$d hours</item>
+    </plurals>
+    <plurals name="common_day_unit_plurals">
+        <item quantity="zero" translation_description="0, 100, 200 ...">%1$d days</item>
+        <item quantity="one" translation_description="1 -> 21, 101 ...">%1$d day</item>
+        <item quantity="few" translation_description="2-4 -> 3, 22, 103 ...">%1$d days</item>
+        <item quantity="many" translation_description="5-9 -> 7, 25, 109...">%1$d days</item>
+        <item quantity="other" translation_description="everything else">%1$d days</item>
+    </plurals>
+    <plurals name="common_week_unit_plurals">
+        <item quantity="zero" translation_description="0, 100, 200 ...">%1$d weeks</item>
+        <item quantity="one" translation_description="1 -> 21, 101 ...">%1$d week</item>
+        <item quantity="few" translation_description="2-4 -> 3, 22, 103 ...">%1$d weeks</item>
+        <item quantity="many" translation_description="5-9 -> 7, 25, 109...">%1$d weeks</item>
+        <item quantity="other" translation_description="everything else">%1$d weeks</item>
+    </plurals>
+    <plurals name="common_month_unit_plurals">
+        <item quantity="zero" translation_description="0, 100, 200 ...">%1$d months</item>
+        <item quantity="one" translation_description="1 -> 21, 101 ...">%1$d month</item>
+        <item quantity="few" translation_description="2-4 -> 3, 22, 103 ...">%1$d months</item>
+        <item quantity="many" translation_description="5-9 -> 7, 25, 109...">%1$d months</item>
+        <item quantity="other" translation_description="everything else">%1$d months</item>
+    </plurals>
+
+    <string name="widget_updating">Updating…</string>
+    <string name="widget_hashrate">Hashrate:</string>
+    <string name="widget_status">Status:</string>
+    <string name="widget_loading_coin">Loading coin…</string>
+    <string name="widget_workers">Workers:</string>
+    <string name="widget_worker">Worker:</string>
+    <string name="widget_balance">Balance:</string>
+
+    <string name="limit_reached">Time Limit Reached!</string>
+    <string name="get_no_limits">Get no limits</string>
+    <string name="one_time_use">Unlock for today</string>
+    <string name="subscribe">Subscribe</string>
+    <string name="ad">Ad</string>
+    <string name="you_unlock_for_now">You have unlocked full access for the next 6 hours. Enjoy!</string>
+    <string name="you_are_now_premium">Thank you for subscribing! You are now premium!</string>
+
+    <string name="subscription_restored">Subscription restored</string>
+    <string name="subscription_not_found">Subscription not found</string>
+</resources>

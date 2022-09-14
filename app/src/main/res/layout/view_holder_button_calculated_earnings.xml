@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="state"
+            type="by.lebedev.nanopoolmonitoring.ui.earnings.EarningsViewState" />
+
+
+        <variable
+            name="onClick"
+            type="android.view.View.OnClickListener" />
+
+    </data>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/internal_chain_space"
+        android:background="?attr/selectableItemBackground"
+        android:drawableEnd="@{state.isCalculatorExpanded ? @drawable/ic_dropup : @drawable/ic_dropdown}"
+        android:gravity="center"
+        android:onClick="@{onClick}"
+        android:paddingEnd="@dimen/internal_list_vertical_space_double"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:text="@string/calculated_earnings"
+        android:textSize="@dimen/normal_text" />
+</layout>

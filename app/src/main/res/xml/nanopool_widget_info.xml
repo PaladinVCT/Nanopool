@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:configure="by.lebedev.nanopoolmonitoring.ui.widget.NanopoolWidgetConfigureActivity"
+    android:initialKeyguardLayout="@layout/widget_nanopool"
+    android:initialLayout="@layout/widget_nanopool"
+    android:previewLayout="@layout/widget_nanopool"
+    android:resizeMode="horizontal"
+    android:targetCellWidth="4"
+    android:targetCellHeight="1"
+    android:minWidth="300dp"
+    android:minHeight="40dp"
+    android:previewImage="@drawable/example_appwidget_preview"
+    android:updatePeriodMillis="1800000"
+    android:widgetCategory="home_screen"/>

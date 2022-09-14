@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation2"
+    app:startDestination="@+id/navigation_dashboard">
+
+    <fragment
+        android:id="@+id/navigation_workers"
+        android:name="by.lebedev.nanopoolmonitoring.ui.workers.WorkersFragment"
+        android:label="@string/title_workers"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/showOptionsFragment"
+            app:destination="@id/optionsFragment"
+            app:enterAnim="@anim/fragment_close_enter"
+            app:exitAnim="@anim/fragment_close_exit"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_exit" />
+
+        <action
+            android:id="@+id/showWorkerDetailsFragment"
+            app:destination="@id/workerDetailsFragment"
+            app:enterAnim="@anim/fragment_close_enter"
+            app:exitAnim="@anim/fragment_close_exit"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_exit" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="by.lebedev.nanopoolmonitoring.ui.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard">
+        <action
+            android:id="@+id/showOptionsFragment"
+            app:destination="@id/optionsFragment"
+            app:enterAnim="@anim/fragment_close_enter"
+            app:exitAnim="@anim/fragment_close_exit"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_exit" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_coins"
+        android:name="by.lebedev.nanopoolmonitoring.ui.coins.CoinsFragment"
+        android:label="@string/title_coins"
+        tools:layout="@layout/fragment_notifications">
+        <action
+            android:id="@+id/showOptionsFragment"
+            app:destination="@id/optionsFragment"
+            app:enterAnim="@anim/fragment_close_enter"
+            app:exitAnim="@anim/fragment_close_exit"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_exit" />
+    </fragment>
+    <fragment
+        android:id="@+id/workerDetailsFragment"
+        android:name="by.lebedev.nanopoolmonitoring.ui.workers.details.WorkerDetailsFragment"
+        android:label="WorkerDetailsFragment" />
+    <fragment
+        android:id="@+id/navigation_earnings"
+        android:name="by.lebedev.nanopoolmonitoring.ui.earnings.EarningsFragment"
+        android:label="EarningsFragment"
+        tools:layout="@layout/fragment_earnings">
+        <action
+            android:id="@+id/showOptionsFragment"
+            app:destination="@id/optionsFragment"
+            app:enterAnim="@anim/fragment_close_enter"
+            app:exitAnim="@anim/fragment_close_exit"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_exit" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/optionsFragment"
+        android:name="by.lebedev.nanopoolmonitoring.ui.options.OptionsFragment"
+        android:label="OptionsFragment" />
+</navigation>

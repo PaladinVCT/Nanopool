@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#E95420</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#E95420</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="coin_red">#DE6565</color>
+    <color name="premium_gold">#A28911</color>
+    <color name="dark_mode_background">#202124</color>
+    <color name="orange">#E95420</color>
+    <color name="orange_alpha_50">#80E95420</color>
+    <color name="app_bar_background">#27333333</color>
+    <color name="regular_dot_color">#27C6C6C6</color>
+    <color name="dashboard_info_bg">#B3787878</color>
+    <color name="grey_background">#27111111</color>
+    <color name="light_blue_50">#FFE1F5FE</color>
+    <color name="light_blue_200">#FF81D4FA</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
+    <color name="widget_green">#368946</color>
+    <color name="nano_icon_dark">#1E1E1E</color>
+
+</resources>

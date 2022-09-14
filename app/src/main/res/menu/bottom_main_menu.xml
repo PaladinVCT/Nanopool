@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:icon="@drawable/ic_home"
+        android:menuCategory="secondary"
+        android:title="@string/title_dashboard" />
+    <item
+        android:id="@+id/navigation_workers"
+        android:icon="@drawable/ic_worker"
+        android:menuCategory="secondary"
+        android:title="@string/title_workers" />
+    <item
+        android:id="@+id/navigation_earnings"
+        android:icon="@drawable/ic_earnings"
+        android:menuCategory="secondary"
+        android:title="@string/title_earnings" />
+
+    <item
+        android:id="@+id/navigation_coins"
+        android:icon="@drawable/ic_coins"
+        android:menuCategory="secondary"
+        android:title="@string/title_coins" />
+
+</menu>

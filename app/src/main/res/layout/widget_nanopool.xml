@@ -1,0 +1,169 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_widget"
+        android:padding="@dimen/widget_margin">
+
+    <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="10dp"
+            android:alpha="0.5"
+            android:scaleType="centerCrop"
+            android:src="@drawable/widget_logo_background" />
+
+    <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp" />
+
+    <ImageView
+        android:id="@+id/widgetCoinImage"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="TODO" />
+
+    <TextView
+        android:id="@+id/widgetCurrentCoin"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/widgetCoinImage"
+        android:layout_alignTop="@+id/widgetCoinImage"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_toRightOf="@id/widgetCoinImage"
+        android:paddingLeft="8dp"
+        android:text="@string/widget_loading_coin"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
+            android:id="@+id/widgetStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/widgetCoinImage"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/widget_status"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+    <TextView
+            android:id="@+id/widgetUpdateStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/widgetStatus"
+            android:layout_marginLeft="5dp"
+            android:text="Last updated:"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+    <TextView
+            android:id="@+id/widgetCurrentStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/widgetStatus"
+            android:layout_marginLeft="4dp"
+            android:layout_toRightOf="@id/widgetStatus"
+            android:text="Receiving data"
+            android:textColor="@color/widget_green"
+            android:textSize="10sp" />
+
+    <TextView
+            android:id="@+id/widgetLastUpdated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/widgetUpdateStatus"
+            android:layout_marginLeft="4dp"
+            android:layout_toRightOf="@id/widgetUpdateStatus"
+            android:text="1 jan 00:00"
+            android:textColor="@color/black"
+            android:textSize="10sp" />
+
+    <Button
+        android:id="@+id/updateButton"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignTop="@id/widgetCurrentBalance"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/update_selector" />
+
+    <TextView
+            android:id="@+id/widgetHashrate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_toStartOf="@+id/widgetCurrentHashrate"
+            android:text="@string/widget_hashrate"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+    <TextView
+            android:id="@+id/widgetCurrentHashrate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="42dp"
+            android:text="@string/widget_updating"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+    <TextView
+            android:id="@+id/widgetBalance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/widgetHashrate"
+            android:layout_alignLeft="@id/widgetHashrate"
+            android:layout_marginTop="4dp"
+            android:text="@string/widget_balance"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+    <TextView
+            android:id="@+id/widgetCurrentBalance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/widgetCurrentHashrate"
+            android:layout_alignLeft="@id/widgetCurrentHashrate"
+            android:layout_marginTop="4dp"
+            android:layout_toRightOf="@+id/widgetBalance"
+            android:text="@string/widget_updating"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+    <TextView
+            android:id="@+id/widgetWorkers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/widgetBalance"
+            android:layout_alignLeft="@id/widgetBalance"
+            android:layout_marginTop="4dp"
+            android:text="@string/widget_workers"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+    <TextView
+            android:id="@+id/widgetCurrentWorkers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/widgetBalance"
+            android:layout_alignLeft="@id/widgetCurrentBalance"
+            android:layout_marginTop="4dp"
+            android:layout_toRightOf="@+id/widgetWorkers"
+            android:text="@string/widget_updating"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+</RelativeLayout>

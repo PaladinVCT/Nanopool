@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="upPercent"
+            type="Float" />
+
+        <variable
+            name="upPercentRes"
+            type="String" />
+
+        <variable
+            name="downPercent"
+            type="Float" />
+
+        <variable
+            name="downPercentRes"
+            type="String" />
+
+        <variable
+            name="shimmerTrigger"
+            type="Boolean" />
+
+    </data>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_vertical_space"
+        app:layout_constraintTop_toTopOf="parent"
+        app:setShimmerTrigger="@{shimmerTrigger}">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                setLayoutWeight="@{upPercent}"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/left_rounded_orange"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:text="@{upPercentRes}"
+                android:textColor="@color/white" />
+
+            <TextView
+                setLayoutWeight="@{downPercent}"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/right_rounded_gray"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:text="@{downPercentRes}"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+</layout>

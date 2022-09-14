@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="state"
+            type="by.lebedev.nanopoolmonitoring.ui.startscreen.StartScreenViewState" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="Nanopool Monitoring Wallets"
+            app:menu="@menu/start_menu"
+            android:background="@color/app_bar_background" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="@style/Widget.Nanopool.ProgressBar.InAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"
+            android:indeterminateTint="@color/orange"
+            app:visibleGone="@{state.isLoading}"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            tools:visibility="visible" />
+
+        <com.airbnb.epoxy.EpoxyRecyclerView
+            android:id="@+id/start_rv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            tools:itemCount="5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

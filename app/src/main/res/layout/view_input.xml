@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:parentTag="android.widget.FrameLayout">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input"
+        android:layout_width="match_parent"
+        app:hintAnimationEnabled="false"
+        android:layout_height="wrap_content">
+
+        <!-- imeOptions= 'actionDone' is need to fix exception: focus search returned a view that
+            wasn't able to take focus!
+
+            This exception could happen when InputFiled used in recycle view, and after click on ImeButton
+            with default 'actionNext' options, focus try to jump on incorrect view -->
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minLines="3"
+            android:imeOptions="actionDone" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+</merge>

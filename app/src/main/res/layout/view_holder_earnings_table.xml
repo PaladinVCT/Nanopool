@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="by.lebedev.nanopoolmonitoring.utils.TextUtils" />
+
+        <import type="by.lebedev.nanopoolmonitoring.utils.TimeFrame" />
+
+        <variable
+            name="fiat"
+            type="String" />
+
+        <variable
+            name="isLoading"
+            type="Boolean" />
+
+        <variable
+            name="shimmerTrigger"
+            type="Boolean" />
+
+        <variable
+            name="spinnerListener"
+            type="android.widget.AdapterView.OnItemSelectedListener" />
+
+        <variable
+            name="aprx"
+            type="by.lebedev.nanopoolmonitoring.data.entities.approximated.ApproximatedEarnings" />
+
+        <variable
+            name="fiatSelection"
+            type="Integer" />
+    </data>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:setShimmerTrigger="@{shimmerTrigger}">
+
+        <LinearLayout
+            android:id="@+id/layoutForCalculatedEarnings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/activity_vertical_space">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/left_top_rounded_orange"
+                    android:gravity="center"
+                    android:text="@string/common_period"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/square_shape_orange"
+                    android:gravity="center"
+                    android:text="@string/common_coins"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/square_shape_orange"
+                    android:gravity="center"
+                    android:text="@string/common_btc"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/right_top_rounded_orange">
+
+                    <Spinner
+                        android:id="@+id/fiatSpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:entries="@array/fiatCurrency"
+                        android:gravity="center"
+                        android:selection="@{fiatSelection}"
+                        android:padding="10dp"
+                        android:spinnerMode="dropdown"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:setSpinnerListener="@{spinnerListener}" />
+                </FrameLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/square_shape_orange"
+                    android:gravity="center"
+                    android:text="@string/common_minute"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/minute_coin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/square_shape_gray"
+                    android:gravity="center"
+                    android:text="@{isLoading? @string/common_loading : TextUtils.roundToDigit(aprx.earnings.Minute.coins,4)}"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/minute_btc"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/square_shape_gray"
+                    android:gravity="center"
+                    android:text="@{isLoading? @string/common_loading :TextUtils.roundToDigit(aprx.earnings.Minute.bitcoins,4)}"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/minute_fiat"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/square_shape_gray"
+                    android:gravity="center"
+                    android:text="@{isLoading? @string/common_loading :TextUtils.roundToDigitFiat(aprx,TimeFrame.MINUTE,fiat,2)}"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/square_shape_orange"
+                    android:gravity="center"
+                    android:text="@string/common_hour"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/hour_coin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/square_shape_gray"
+                    android:gravity="center"
+                    android:text="@{isLoading? @string/common_loading :TextUtils.roundToDigit(aprx.earnings.Hour.coins,4)}"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/hour_btc"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/square_shape_gray"
+                    android:gravity="center"
+                    android:text="@{isLoading? @string/common_loading :TextUtils.roundToDigit(aprx.earnings.Hour.bitcoins,4)}"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/hour_fiat"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/square_shape_gray"
+                    android:gravity="center"
+                    android:text="@{isLoading? @string/common_loading :TextUtils.roundToDigitFiat(aprx,TimeFrame.HOUR,fiat,2)}"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/square_shape_orange"
+                    android:gravity="center"
+                    android:text="@string/common_day"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/day_coin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/square_shape_gray"
+                    android:gravity="center"
+                    android:text="@{isLoading? @string/common_loading :TextUtils.roundToDigit(aprx.earnings.day.coins,4)}"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/day_btc"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/square_shape_gray"
+                    android:gravity="center"
+                    android:text="@{isLoading? @string/common_loading :TextUtils.roundToDigit(aprx.earnings.day.bitcoins,4)}"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/day_fiat"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/square_shape_gray"
+                    android:gravity="center"
+                    android:text="@{isLoading? @string/common_loading :TextUtils.roundToDigitFiat(aprx,TimeFrame.DAY,fiat,2)}"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/square_shape_orange"
+                    android:gravity="center"
+                    android:text="@string/common_week"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/week_coin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/square_shape_gray"
+                    android:gravity="center"
+                    android:text="@{isLoading? @string/common_loading :TextUtils.roundToDigit(aprx.earnings.week.coins,4)}"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/week_btc"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/square_shape_gray"
+                    android:gravity="center"
+                    android:text="@{isLoading? @string/common_loading :TextUtils.roundToDigit(aprx.earnings.week.bitcoins,4)}"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/week_fiat"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/square_shape_gray"
+                    android:gravity="center"
+                    android:text="@{isLoading? @string/common_loading :TextUtils.roundToDigitFiat(aprx,TimeFrame.WEEK,fiat,2)}"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/left_bottom_rounded_orange"
+                    android:gravity="center"
+                    android:text="@string/common_month"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/month_coin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/square_shape_gray"
+                    android:gravity="center"
+                    android:text="@{isLoading? @string/common_loading :TextUtils.roundToDigit(aprx.earnings.month.coins,4)}"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/month_btc"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/square_shape_gray"
+                    android:gravity="center"
+                    android:text="@{isLoading? @string/common_loading :TextUtils.roundToDigit(aprx.earnings.month.bitcoins,4)}"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/month_fiat"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/right_bottom_rounded_gray"
+                    android:gravity="center"
+                    android:text="@{isLoading? @string/common_loading :TextUtils.roundToDigitFiat(aprx,TimeFrame.MONTH,fiat,2)}"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+</layout>

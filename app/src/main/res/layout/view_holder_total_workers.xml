@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="shimmerTrigger"
+            type="Boolean" />
+
+        <variable
+            name="areWorkersExpanded"
+            type="Boolean" />
+
+        <variable
+            name="totalWorkersRes"
+            type="String" />
+
+        <variable
+            name="onTotalClick"
+            type="android.view.View.OnClickListener" />
+
+
+    </data>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:setShimmerTrigger="@{shimmerTrigger}">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/internal_chain_space_double">
+
+            <FrameLayout
+                android:id="@+id/total_fl"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:background="?attr/selectableItemBackground"
+                android:onClick="@{onTotalClick}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/percentPayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:drawableEnd="@{areWorkersExpanded ? @drawable/ic_dropup : @drawable/ic_dropdown}"
+                    android:gravity="center"
+                    android:paddingEnd="@dimen/internal_list_vertical_space_double"
+                    android:text="@{totalWorkersRes}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/normal_text"
+                    tools:text="Total workers 54" />
+
+            </FrameLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/internal_chain_space"
+            android:background="@color/dashboard_info_bg"
+            android:layout_gravity="top"
+            android:layout_marginHorizontal="@dimen/internal_chain_space_double" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="@dimen/internal_chain_space"
+            android:background="@color/dashboard_info_bg"
+            android:layout_gravity="bottom"
+            android:layout_marginHorizontal="@dimen/internal_chain_space_double" />
+    </com.facebook.shimmer.ShimmerFrameLayout>
+</layout>

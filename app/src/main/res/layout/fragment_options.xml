@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="state"
+            type="by.lebedev.nanopoolmonitoring.ui.options.OptionsViewState" />
+
+        <variable
+            name="onNavigateUp"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="onNotificationsClick"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="onAutoUpdateClick"
+            type="android.view.View.OnClickListener" />
+        <variable
+            name="onRateAppClick"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="onNotificationInfoClick"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="onAutoupdateInfoClick"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="onAutoLoginInfoClick"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="onAutoLoginClick"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="onCurrencyClick"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="onPremiumClick"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="onPremiumInfoClick"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="isNotificationsChecked"
+            type="Boolean" />
+
+        <variable
+            name="isAutoUpdateChecked"
+            type="Boolean" />
+
+        <variable
+            name="isAutoLoginChecked"
+            type="Boolean" />
+
+        <variable
+            name="autoLoginAccount"
+            type="String" />
+
+        <variable
+            name="selectedFiat"
+            type="String" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/app_bar_background"
+            android:elevation="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="?homeAsUpIndicator"
+            app:onNavigateUpClick="@{onNavigateUp}"
+            app:title="@string/title_options" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="@style/Widget.Nanopool.ProgressBar.InAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"
+            android:indeterminateTint="@color/orange"
+            app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:visibleGone="@{state.isLoading}"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/notifications"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
+            android:checked="@{isNotificationsChecked}"
+            android:drawableStart="@drawable/ic_notifications"
+            android:drawablePadding="@dimen/activity_horizontal_margin"
+            android:onClick="@{onNotificationsClick}"
+            android:padding="@dimen/activity_vertical_space"
+            android:text="@string/notifications"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toStartOf="@+id/notifications_info"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:visibleGone="@{state.isNotificationsEnabled}" />
+
+        <ImageView
+            android:id="@+id/notifications_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/activity_vertical_space"
+            android:onClick="@{onNotificationInfoClick}"
+            android:src="@drawable/ic_action_info"
+            app:layout_constraintBottom_toBottomOf="@+id/notifications"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/notifications"
+            app:layout_constraintTop_toTopOf="@+id/notifications"
+            app:visibleGone="@{state.isNotificationsEnabled}" />
+
+        <View
+            android:id="@+id/divider_notifications"
+            style="@style/HorizontalLine"
+            android:layout_marginStart="@dimen/activity_horizontal_space"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/notifications"
+            app:visibleGone="@{state.isNotificationsEnabled}" />
+
+        <TextView
+            android:id="@+id/currency"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
+            android:drawableStart="@drawable/ic_currency"
+            android:drawablePadding="@dimen/activity_horizontal_margin"
+            android:onClick="@{onCurrencyClick}"
+            android:padding="@dimen/activity_vertical_space"
+            android:text="@string/currency"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/notifications" />
+
+        <TextView
+            android:id="@+id/currency_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{onCurrencyClick}"
+            android:padding="@dimen/activity_vertical_space"
+            android:text="@{selectedFiat}"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/divider_currency"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/notifications"
+            tools:text="USD" />
+
+        <View
+            android:id="@+id/divider_currency"
+            style="@style/HorizontalLine"
+            android:layout_marginStart="@dimen/activity_horizontal_space"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/currency" />
+
+        <TextView
+            android:id="@+id/language"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
+            android:drawableStart="@drawable/ic_language"
+            android:drawablePadding="@dimen/activity_horizontal_margin"
+            android:padding="@dimen/activity_vertical_space"
+            android:text="@string/language"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/currency" />
+
+        <View
+            android:id="@+id/divider_language"
+            style="@style/HorizontalLine"
+            android:layout_marginStart="@dimen/activity_horizontal_space"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/language" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/auto_update"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
+            android:checked="@{isAutoUpdateChecked}"
+            android:drawableStart="@drawable/ic_update"
+            android:drawablePadding="@dimen/activity_horizontal_margin"
+            android:onClick="@{onAutoUpdateClick}"
+            android:padding="@dimen/activity_vertical_space"
+            android:text="@string/autoupdate"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/auto_update_info"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/language" />
+
+        <ImageView
+            android:id="@+id/auto_update_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/activity_vertical_space"
+            android:onClick="@{onAutoupdateInfoClick}"
+            android:src="@drawable/ic_action_info"
+            app:layout_constraintBottom_toBottomOf="@+id/auto_update"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/auto_update"
+            app:layout_constraintTop_toTopOf="@+id/auto_update" />
+
+        <View
+            android:id="@+id/divider_auto_update"
+            style="@style/HorizontalLine"
+            android:layout_marginStart="@dimen/activity_horizontal_space"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/auto_update" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/auto_login"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
+            android:checked="@{isAutoLoginChecked}"
+            android:drawableStart="@drawable/ic_login"
+            android:drawablePadding="@dimen/activity_horizontal_margin"
+            android:onClick="@{onAutoLoginClick}"
+            android:padding="@dimen/activity_vertical_space"
+            android:text="@string/auto_login"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toStartOf="@id/auto_login_info"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_auto_update" />
+
+        <TextView
+            android:id="@+id/auto_login_account_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:background="?selectableItemBackground"
+            android:ellipsize="middle"
+            android:maxLines="1"
+            android:padding="@dimen/nav_header_vertical_spacing"
+            android:text="@{autoLoginAccount}"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/auto_login"
+            app:visibleGone="@{isAutoLoginChecked}"
+            tools:text="0xhxgjhxgjgjh43g5jh34h54h5f3g4hf5gh34f5g34hf5g4h5g34jh" />
+
+        <View
+            android:id="@+id/divider_auto_login"
+            style="@style/HorizontalLine"
+            android:layout_marginStart="@dimen/activity_horizontal_space"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/auto_login_account_value" />
+
+        <ImageView
+            android:id="@+id/auto_login_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/activity_vertical_space"
+            android:onClick="@{onAutoLoginInfoClick}"
+            android:src="@drawable/ic_action_info"
+            app:layout_constraintBottom_toBottomOf="@+id/auto_login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/auto_login"
+            app:layout_constraintTop_toTopOf="@+id/auto_login" />
+
+        <TextView
+            android:id="@+id/rateapp_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
+            android:drawableStart="@drawable/ic_star"
+            android:drawablePadding="@dimen/activity_horizontal_margin"
+            android:onClick="@{onRateAppClick}"
+            android:padding="@dimen/activity_vertical_space"
+            android:text="@string/rate_app"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_auto_login" />
+
+        <View
+            android:id="@+id/divider_rateapp"
+            style="@style/HorizontalLine"
+            android:layout_marginStart="@dimen/activity_horizontal_space"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rateapp_tv" />
+        <TextView
+            android:id="@+id/premium_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
+            android:drawableStart="@drawable/ic_premium"
+            android:drawablePadding="@dimen/activity_horizontal_margin"
+            android:onClick="@{onPremiumClick}"
+            android:padding="@dimen/activity_vertical_space"
+            android:text="@string/get_premium"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_rateapp" />
+
+        <ImageView
+            android:id="@+id/premium_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/activity_vertical_space"
+            android:onClick="@{onPremiumInfoClick}"
+            android:src="@drawable/ic_action_info"
+            app:layout_constraintBottom_toBottomOf="@+id/premium_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/premium_tv" />
+
+        <View
+            android:id="@+id/divider_premium"
+            style="@style/HorizontalLine"
+            android:layout_marginStart="@dimen/activity_horizontal_space"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/premium_tv" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

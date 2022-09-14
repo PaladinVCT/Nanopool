@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="categoryName"
+            type="String" />
+
+        <variable
+            name="onCategoryClick"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="isSelected"
+            type="java.lang.Boolean" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/internal_chain_space_small"
+        android:layout_marginTop="@dimen/internal_list_vertical_space"
+        android:layout_marginBottom="@dimen/internal_list_vertical_space"
+        android:onClick="@{onCategoryClick}"
+        app:cardCornerRadius="20dp"
+        android:backgroundTintMode="src_atop"
+        android:backgroundTint="@{isSelected? @color/app_bar_background : @color/dashboard_info_bg }"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/internal_chain_space"
+            android:gravity="center"
+            android:text="@{categoryName}"
+            android:textColor="@{isSelected? @color/white : @color/orange }"
+            tools:text="Все" />
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

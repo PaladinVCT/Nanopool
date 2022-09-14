@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="spinnerListener"
+            type="android.widget.AdapterView.OnItemSelectedListener" />
+
+        <variable
+            name="sessionBearer"
+            type="by.lebedev.nanopoolmonitoring.utils.SessionBearer" />
+
+        <variable
+            name="coinPrice"
+            type="String" />
+
+        <variable
+            name="shimmerTrigger"
+            type="Boolean" />
+
+        <variable
+            name="fiatSelection"
+            type="Integer" />
+    </data>
+
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:setShimmerTrigger="@{shimmerTrigger}">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginHorizontal="@dimen/internal_list_vertical_space_double"
+            android:layout_marginVertical="@dimen/internal_chain_space"
+            app:cardCornerRadius="@dimen/internal_chain_space">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rounded"
+                    android:orientation="horizontal">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/left_rounded_gray_frame"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:textColor="@color/white">
+
+
+                        <ImageView
+                            android:id="@+id/coin_iv"
+                            setDrawableRes="@{sessionBearer.wallet.walletCoin.coinImageRes}"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_margin="@dimen/internal_chain_space"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:src="@drawable/ic_eth" />
+
+                        <TextView
+                            android:id="@+id/coin_name"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="2"
+                            android:minWidth="60dp"
+                            android:text="@{sessionBearer.wallet.walletCoin.name}"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/normal_text"
+                            app:layout_constraintBottom_toBottomOf="@+id/coin_iv"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_weight="1"
+                            app:layout_constraintStart_toEndOf="@+id/coin_iv"
+                            app:layout_constraintTop_toTopOf="@+id/coin_iv"
+                            tools:text="Bitcoin ethereum monero" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/unconfirmedBalance"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/white">
+
+                        <Spinner
+                            android:id="@+id/coin_fiat"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:entries="@array/fiatCurrency"
+                            android:gravity="center"
+                            android:selection="@{fiatSelection}"
+                            android:paddingStart="40dp"
+                            android:spinnerMode="dropdown"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/normal_text"
+                            app:layout_constraintBottom_toTopOf="@+id/coin_price"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:setSpinnerListener="@{spinnerListener}" />
+
+                        <TextView
+                            android:id="@+id/coin_price"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:minWidth="100dp"
+                            android:text="@{coinPrice}"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/normal_text"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_weight="1"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/coin_fiat"
+                            tools:text="30000" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+</layout>

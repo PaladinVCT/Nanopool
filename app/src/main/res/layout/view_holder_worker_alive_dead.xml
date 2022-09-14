@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="shimmerTrigger"
+            type="Boolean" />
+
+        <variable
+            name="aliveWorkers"
+            type="Integer" />
+
+        <variable
+            name="deadWorkers"
+            type="Integer" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer_fl"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="@dimen/internal_chain_space_double"
+            android:layout_marginTop="@dimen/internal_chain_space_double"
+            app:layout_constraintEnd_toStartOf="@+id/refresh_iv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:setShimmerTrigger="@{shimmerTrigger}">
+
+            <LinearLayout
+                android:id="@+id/alive_dead_ll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/left_rounded_gray_frame"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:lineSpacingExtra="10dp"
+                    android:padding="5dp"
+                    android:text="@string/workers_alive_dead"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/normal_text" />
+
+                <TextView
+                    android:id="@+id/unconfirmedBalance"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:lineSpacingExtra="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/normal_text"
+                    app:styleAliveWorkers="@{aliveWorkers}"
+                    app:styleDeadWorkers="@{deadWorkers}"
+                    tools:text="55\n6" />
+            </LinearLayout>
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <ImageView
+            android:id="@+id/refresh_iv"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginHorizontal="30dp"
+            android:src="@drawable/ic_worker"
+            app:layout_constraintBottom_toBottomOf="@+id/shimmer_fl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/shimmer_fl"
+            app:layout_constraintTop_toTopOf="@+id/shimmer_fl" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

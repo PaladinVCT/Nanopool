@@ -1,0 +1,68 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Nanopoolmonitoring" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimaryVariant">@color/dark_mode_background</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="textInputStyle">@style/Widget.Nanopool.TextInputLayout.OutlinedBox.Dense</item>
+
+    </style>
+
+    <style name="Widget.Nanopool.Button" parent="@style/Widget.MaterialComponents.Button" />
+
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        // Set the splash screen background, animated icon, and animation duration.
+        <item name="windowSplashScreenBackground">@color/dark_mode_background</item>
+
+        // Use windowSplashScreenAnimatedIcon to add either a drawable or an
+        // animated drawable. One of these is required.
+        <item name="windowSplashScreenAnimatedIcon">@drawable/nanopool_square_logo</item>
+        <item name="windowSplashScreenAnimationDuration">300</item>
+        # Required for
+        # animated icons
+
+        // Set the theme of the Activity that directly follows your splash screen.
+        <item name="postSplashScreenTheme">@style/Theme.Nanopoolmonitoring</item>
+        # Required.
+    </style>
+
+    <style name="Widget.Nanopool.ProgressBar.InAppBar" parent="Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:layout_marginTop">-8dp</item>
+        <item name="android:layout_marginBottom">-8dp</item>
+        <item name="android:indeterminateOnly">true</item>
+        <item name="android:indeterminateTint">@color/orange</item>
+    </style>
+
+    <style name="Widget.Nanopool.TextInputLayout.OutlinedBox.Dense" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense" />
+
+    <style name="HorizontalLine">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">?dividerHorizontal</item>
+    </style>
+
+    <style name="Theme.App.Starting.AppWidgetContainerParent" parent="@android:style/Theme.DeviceDefault">
+        <!-- Radius of the outer bound of widgets to make the rounded corners -->
+        <item name="appWidgetRadius">16dp</item>
+        <!--
+        Radius of the inner view's bound of widgets to make the rounded corners.
+        It needs to be 8dp or less than the value of appWidgetRadius
+        -->
+        <item name="appWidgetInnerRadius">8dp</item>
+    </style>
+
+    <style name="Theme.App.Starting.AppWidgetContainer" parent="Theme.App.Starting.AppWidgetContainerParent">
+        <!-- Apply padding to avoid the content of the widget colliding with the rounded corners -->
+        <item name="appWidgetPadding">16dp</item>
+    </style>
+
+</resources>

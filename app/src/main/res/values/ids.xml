@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="tag_text_dynamic_watcher" type="id" />
+    <item name="tag_masked_text_listener" type="id" />
+    <item name="tag_set_text_callback" type="id" />
+    <item name="tag_input_id" type="id" />
+</resources>

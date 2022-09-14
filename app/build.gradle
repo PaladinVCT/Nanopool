@@ -1,0 +1,164 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-parcelize'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
+}
+
+android {
+    namespace 'by.lebedev.nanopoolmonitoring'
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "by.lebedev.nanopoolmonitoring"
+        minSdk 26
+        targetSdk 32
+        versionCode 39
+        versionName "2.0.1"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "API_URL_NANOPOOL", "\"https://api.nanopool.org/v1\"")
+        buildConfigField("String", "API_URL_CC", "\"https://api.coincap.io/v2/\"")
+        buildConfigField("String", "API_URL_COINGECKO", "\"https://api.coingecko.com/api/v3/\"")
+//        buildConfigField("String", "CMC_KEY1", "\"eb58ea2f-1d43-405f-bb97-ef01946db5fb\"")
+//        buildConfigField("String", "CMC_KEY2", "\"2e060b13-0f69-456b-9e79-f95ce3550ad1\"")
+
+        //test
+//        buildConfigField("String", "REWARDER_ID", "\"ca-app-pub-3940256099942544/5224354917\"")
+
+        //1 hour
+        buildConfigField("Long", "NO_ADS_GRACE_INTERVAL", "40000L")
+        //6 hours
+        buildConfigField("Long", "NO_ADS_AFTER_WATCHING_AD", "21600000L")
+        //prod
+        buildConfigField("String", "REWARDER_ID", "\"ca-app-pub-1501215034144631/2652484506\"")
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+    }
+    buildFeatures {
+        dataBinding true
+        viewBinding true
+    }
+    buildscript {
+        repositories {
+            google()
+            mavenCentral()
+            maven { url 'https://jitpack.io' }
+        }
+        dependencies {
+            classpath 'com.jakewharton:butterknife-gradle-plugin:10.1.0'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+        useIR = true
+    }
+}
+
+dependencies {
+
+
+    implementation 'com.google.firebase:firebase-analytics:21.1.1'
+    implementation 'com.google.firebase:firebase-crashlytics:18.2.13'
+    implementation 'com.google.firebase:firebase-messaging:23.0.8'
+    implementation 'com.google.android.play:core-ktx:1.8.1'
+    implementation 'com.google.android.gms:play-services-ads-lite:21.2.0'
+    def mvrx_version = "2.6.1"
+    def epoxyVersion = "5.0.0-beta04"
+    def nav_version = "2.4.1"
+    def retrofit_version = "2.9.0"
+    def hilt_version = "2.38.1"
+    def lifecycle_version = "2.4.1"
+    def okhttp_version = "4.9.0"
+    def moshi_version = "1.13.0"
+    def room_version = "2.2.5"
+    def material_dialogs_version = "3.2.1"
+    def shimmer_version = "0.5.0"
+    def circular_progress_version = "3.1.0"
+    def lottie_version = "5.0.3"
+    def picasso_version = "2.8"
+    def secure_pref_version = "1.1.0-alpha03"
+    def workmanager_version = "2.7.1"
+    def workmanager_hilt_version = "1.0.0"
+    def gson_version = "2.8.8"
+    def billing_version = "5.0.0"
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    implementation files('libs/input-mask-android-6.0.0.aar')
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation "com.airbnb.android:epoxy:$epoxyVersion"
+    kapt "com.airbnb.android:epoxy-processor:$epoxyVersion"
+    implementation "com.airbnb.android:epoxy-databinding:$epoxyVersion"
+    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
+    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+    kapt 'androidx.hilt:hilt-compiler:1.0.0'
+    implementation 'androidx.core:core-splashscreen:1.0.0-beta02'
+    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+    implementation "com.squareup.moshi:moshi:$moshi_version"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
+
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+
+    implementation "com.afollestad.material-dialogs:core:$material_dialogs_version"
+    implementation "com.afollestad.material-dialogs:lifecycle:$material_dialogs_version"
+    implementation "com.afollestad.material-dialogs:bottomsheets:$material_dialogs_version"
+
+    implementation "com.airbnb.android:mavericks:$mvrx_version"
+
+    implementation "com.facebook.shimmer:shimmer:$shimmer_version"
+
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0-alpha'
+
+    //CircularProgressBar
+    implementation "com.mikhaellopez:circularprogressbar:$circular_progress_version"
+
+    implementation "com.airbnb.android:lottie:$lottie_version"
+
+    implementation "androidx.security:security-crypto-ktx:$secure_pref_version"
+
+    implementation "com.squareup.picasso:picasso:$picasso_version"
+
+    implementation "androidx.work:work-runtime-ktx:$workmanager_version"
+    implementation "androidx.hilt:hilt-work:$workmanager_hilt_version"
+    implementation "com.google.code.gson:gson:$gson_version"
+    implementation "com.android.billingclient:billing:$billing_version"
+    implementation "com.android.billingclient:billing-ktx:$billing_version"
+}
+kapt {
+    correctErrorTypes = true
+}

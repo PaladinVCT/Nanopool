@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "672550935586",
+    "project_id": "nanopoolmonitoring",
+    "storage_bucket": "nanopoolmonitoring.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:672550935586:android:928757c6c76d47dbc4be7b",
+        "android_client_info": {
+          "package_name": "by.lebedev.nanopoolmonitoring"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "672550935586-onsvt4kkqahunvf0n7p6aoo1r45ps2jn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjbuPfqTs7KhnJ3v1L32f7q_766N-bU40"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "672550935586-onsvt4kkqahunvf0n7p6aoo1r45ps2jn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
