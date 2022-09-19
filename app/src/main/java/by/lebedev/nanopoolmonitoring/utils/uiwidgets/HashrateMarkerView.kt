@@ -37,7 +37,7 @@ class HashrateMarkerView(context: Context?, layoutResource: Int) :
             var hashrateName = SessionBearer.wallet?.walletCoin?.hashrate()
 
             val value: Float = when (SessionBearer.wallet?.walletCoin?.ticker) {
-                "eth","etc" -> {
+                "eth", "ethw", "etc" -> {
                     if (e.y < 1000) {
                         hashrateName = SessionBearer.wallet?.walletCoin?.hashrateSmall()
                         e.y
@@ -63,7 +63,7 @@ class HashrateMarkerView(context: Context?, layoutResource: Int) :
                     }
                 }
                 "rvn" -> {
-                    if (e.y >1_000) {
+                    if (e.y > 1_000) {
                         hashrateName = SessionBearer.wallet?.walletCoin?.hashrateBig()
                         e.y.div(1000)
                     } else {
@@ -71,7 +71,7 @@ class HashrateMarkerView(context: Context?, layoutResource: Int) :
                     }
                 }
                 "cfx" -> {
-                    if (e.y >1_000) {
+                    if (e.y > 1_000) {
                         hashrateName = SessionBearer.wallet?.walletCoin?.hashrateBig()
                         e.y.div(1000)
                     } else {
@@ -79,7 +79,7 @@ class HashrateMarkerView(context: Context?, layoutResource: Int) :
                     }
                 }
                 "ergo" -> {
-                    if (e.y >1_000) {
+                    if (e.y > 1_000) {
                         hashrateName = SessionBearer.wallet?.walletCoin?.hashrateBig()
                         e.y.div(1000)
                     } else {

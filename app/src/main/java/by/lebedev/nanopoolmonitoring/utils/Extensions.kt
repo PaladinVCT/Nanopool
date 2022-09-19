@@ -299,6 +299,7 @@ fun CoinTicker.toCoin(): Coin = CoinBearer.coinList.first {
 
 fun String.textToCoinTicker(): CoinTicker =
     when (this) {
+        "ethw" -> CoinTicker.ETHEREUM_POW
         "eth" -> CoinTicker.ETHEREUM
         "etc" -> CoinTicker.ETHEREUM_CLASSIC
         "zec" -> CoinTicker.ZCASH
@@ -311,6 +312,7 @@ fun String.textToCoinTicker(): CoinTicker =
 
 fun String.toCoinImageRes(): Int =
     when (this) {
+        "ethw" -> R.drawable.ethw_logo
         "eth" -> R.drawable.eth_logo
         "etc" -> R.drawable.etc_logo
         "zec" -> R.drawable.zec_logo
@@ -323,7 +325,7 @@ fun String.toCoinImageRes(): Int =
 
 fun Coin.hashrate(): String {
     return when (this.ticker.textToCoinTicker()) {
-        CoinTicker.ETHEREUM, CoinTicker.RAVEN -> "Mh/s"
+        CoinTicker.ETHEREUM,CoinTicker.ETHEREUM_POW, CoinTicker.RAVEN -> "Mh/s"
         CoinTicker.ETHEREUM_CLASSIC -> "Mh/s"
         CoinTicker.ZCASH -> "Sol/s"
         CoinTicker.MONERO -> "H/s"
@@ -335,7 +337,7 @@ fun Coin.hashrate(): String {
 
 fun Coin.hashrateSmall(): String {
     return when (this.ticker.textToCoinTicker()) {
-        CoinTicker.ETHEREUM, CoinTicker.RAVEN -> "Kh/s"
+        CoinTicker.ETHEREUM,CoinTicker.ETHEREUM_POW, CoinTicker.RAVEN -> "Kh/s"
         CoinTicker.ETHEREUM_CLASSIC -> "Kh/s"
         CoinTicker.ZCASH -> "Sol/s"
         CoinTicker.MONERO -> "H/s"
@@ -347,7 +349,7 @@ fun Coin.hashrateSmall(): String {
 
 fun Coin.hashrateBig(): String {
     return when (this.ticker.textToCoinTicker()) {
-        CoinTicker.ETHEREUM, CoinTicker.RAVEN -> "Gh/s"
+        CoinTicker.ETHEREUM,CoinTicker.ETHEREUM_POW, CoinTicker.RAVEN -> "Gh/s"
         CoinTicker.ETHEREUM_CLASSIC -> "Gh/s"
         CoinTicker.ZCASH -> "KSol/s"
         CoinTicker.MONERO -> "KH/s"
@@ -359,6 +361,7 @@ fun Coin.hashrateBig(): String {
 
 fun Coin.geckoCoinName(): String {
     return when (this.ticker.textToCoinTicker()) {
+        CoinTicker.ETHEREUM_POW -> "ethereum-pow-iou"
         CoinTicker.ETHEREUM -> "ethereum"
         CoinTicker.ETHEREUM_CLASSIC -> "ethereum-classic"
         CoinTicker.ZCASH -> "zcash"

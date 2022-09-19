@@ -11,6 +11,7 @@ const val WALLET_ID = "Wallet id"
 
 object CoinBearer {
     val coinList = listOf(
+        Coin(R.drawable.ethw_logo, CoinName.ETHEREUM_POW.value, CoinTicker.ETHEREUM_POW.value),
         Coin(R.drawable.eth_logo, CoinName.ETHEREUM.value, CoinTicker.ETHEREUM.value),
         Coin(
             R.drawable.etc_logo,
@@ -48,6 +49,7 @@ data class Coin(
 ) : Parcelable
 
 enum class CoinName(override val value: String) : StorableValueEnum<String> {
+    ETHEREUM_POW("ethereum_pow"),
     ETHEREUM("ethereum"),
     ETHEREUM_CLASSIC("ethereum classic"),
     ZCASH("zcash"),
@@ -58,6 +60,7 @@ enum class CoinName(override val value: String) : StorableValueEnum<String> {
 }
 
 enum class CoinTicker(override val value: String) : StorableValueEnum<String> {
+    ETHEREUM_POW("ethw"),
     ETHEREUM("eth"),
     ETHEREUM_CLASSIC("etc"),
     ZCASH("zec"),

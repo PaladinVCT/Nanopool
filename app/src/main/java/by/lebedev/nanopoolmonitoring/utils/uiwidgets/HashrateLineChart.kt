@@ -65,7 +65,7 @@ class HashrateLineChart @JvmOverloads constructor(
             var hashrateName = SessionBearer.wallet?.walletCoin?.hashrate()
 
             val hashrate: Float = when (SessionBearer.wallet?.walletCoin?.ticker) {
-                "eth", "etc"-> {
+                "eth", "ethw", "etc"-> {
                     if (value in 1f..1000f) {
                         hashrateName = SessionBearer.wallet?.walletCoin?.hashrateSmall()
                         value
